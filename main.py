@@ -1,11 +1,3 @@
-#!/usr/bin/env python
-'''
-Script to transport and download video files
-
-Install: slackclient from pip3
-
-'''
-# from slackeventsapi import SlackEventAdapter
 from slackclient import SlackClient
 import time
 import os
@@ -24,6 +16,8 @@ def processMessages():
     # Get events after last call
     events = slack_client.rtm_read()
     for event in events:
+        # Debug purposes only
+        print(event)
         # Process new events
         # Let's make sure this event is from the transporter channel and is valid
         if('transporter' in event and 'http' in event and event.get('type') == 'message'):
@@ -34,7 +28,6 @@ def processMessages():
             message = "Received link {}, but cannot parse right now. Try again later.".format(text)
             slack_client.api_call("chat.postMessage", channel=channel, text=message)
         else:
-            print(event)
             print("No message received for this run. Rerun?")
 
 # ----------------------
