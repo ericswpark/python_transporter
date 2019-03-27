@@ -11,6 +11,7 @@ if slack_client.rtm_connect():
     while True:
         events = slack_client.rtm_read()
         for event in events:
+            print(event)
             # Process new events
             # Let's make sure this event is from the transporter channel and is valid
             if('channel' in event and 'text' in event and event.get('type') == 'message' and event.get('subtype') != 'bot_message'):
