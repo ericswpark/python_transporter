@@ -47,29 +47,3 @@ if slack_client.rtm_connect():
         time.sleep(1)
 else:
     print("Connection failed, invalid tokens?")
-
-
-
-
-
-'''
-# Get new messages
-@slack_events_adapter.on("message")
-def handle_message(event_data):
-    message = event_data["event"]
-    # If the incoming message has a video link (text only), forward it
-    if message.get("subtype") is None and "http" in message.get('text'):
-        channel = message["channel"]
-        message = "Received link {}, but cannot do anything with it right now.".format(message.get('text'))
-        slack_client.api_call("chat.postMessage", channel=channel, text=message)
-
-
-# Error events
-@slack_events_adapter.on("error")
-def error_handler(err):
-    print("ERROR: " + str(err))
-
-# Once we have our event listeners configured, we can start the
-# Flask server with the default `/events` endpoint on port 3000
-slack_events_adapter.start(port=3000)
-'''
