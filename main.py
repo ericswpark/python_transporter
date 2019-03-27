@@ -34,6 +34,7 @@ def processMessages():
             message = "Received link {}, but cannot parse right now. Try again later.".format(text)
             slack_client.api_call("chat.postMessage", channel=channel, text=message)
         else:
+            print(event)
             print("No message received for this run. Rerun?")
 
 # ----------------------
