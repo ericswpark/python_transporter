@@ -21,6 +21,6 @@ if slack_client.rtm_connect():
                 slack_client.api_call("chat.postMessage", channel=channel, text=message)
             else:
                 print("No message received for this run. Rerun?")
-        time.sleep(1)
+        time.sleep(30)
 else:
     print("Connection failed, invalid tokens?")
