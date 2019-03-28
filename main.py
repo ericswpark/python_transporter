@@ -3,6 +3,7 @@ import os
 import time
 import parser
 
+# TODO: Read token from a separate file to prevent leaks
 # Initialize client
 SLACK_BOT_TOKEN = "xoxb-553286279156-556607535715-KolZkyBqAektJ7noQjLsaDlG"
 slack_client = SlackClient(SLACK_BOT_TOKEN)
@@ -13,7 +14,7 @@ if slack_client.rtm_connect():
         events = slack_client.rtm_read()
         for event in events:
             # Process new events
-            # Let's make sure this event is from the transporter channel and is valid
+            # Let's make sure this event is a message event from a channel (make sure it's not a bot message too)
             if('channel' in event and 'text' in event and event.get('type') == 'message' and event.get('subtype') != 'bot_message'):
                 print("Received message!")
                 channel = event['channel']
