@@ -2,8 +2,8 @@ from slackclient import SlackClient
 import os
 import sys
 import time
-import parser
-import config
+import utils.parser as parser
+import utils.config as config
 
 # Try reading token
 try:
@@ -40,7 +40,7 @@ if slack_client.rtm_connect():
                 # See if link has brackets, remove if true
                 if text[0] == '<':
                     text = text[1:-1]
-
+                
                 status_return_code = parser.parseUrl(text)
                 if status_return_code == 0:
                     message = "Download successful!"
