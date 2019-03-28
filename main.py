@@ -22,7 +22,7 @@ if slack_client.rtm_connect():
                 slack_client.api_call("chat.postMessage", channel=channel, text=message)
 
                 # See if link has brackets, remove if true
-                if text[1] == '<':
+                if text[0] == '<':
                     text = text[1:-1]
 
                 status_return_code = parser.parseUrl(text)
