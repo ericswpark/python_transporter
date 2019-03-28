@@ -8,7 +8,7 @@ Parses the URL to retreive the video.
     1 - Not link
     2 - Unsupported link or text
 '''
-def parseUrl(link):
+def parseUrl(link) -> int:
     if 'wetransfer' in link or 'we.tl' in link:
         # WeTransfer link
         print('Got WeTransfer link: {}'.format(link))
