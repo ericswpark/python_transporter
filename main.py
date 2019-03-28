@@ -21,7 +21,7 @@ if slack_client.rtm_connect():
                 message = "Received link {}, but cannot parse right now. Try again later.".format(text)
                 slack_client.api_call("chat.postMessage", channel=channel, text=message)
             else:
-                print("No message received for this run. Rerun?")
+                print("No message received for this run. Sleeping 30 seconds...")
         time.sleep(30)
 else:
     print("Connection failed, invalid tokens?")
