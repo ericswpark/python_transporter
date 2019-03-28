@@ -1,5 +1,3 @@
-import urllib
-
 '''
 Parses the URL to retreive the video.
 
