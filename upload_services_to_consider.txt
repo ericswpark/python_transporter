@@ -23,10 +23,3 @@ TransferApp --> https://www.transferapp.com/
 JumpShare --> https://jumpshare.com/ (questionable, might be premium)
 
 Smash --> https://fromsmash.com/
-
-WeTransfer --> https://wetransfer.com/
-https://github.com/MarcosBL/py-wetransfer
-https://github.com/predat/wetransferpy
-https://pypi.org/project/wetransferpy/
-https://silicondales.com/tutorials/how-to-download-from-wetransfer-straight-to-your-server-in-putty-terminal/
-https://www.forbesconrad.com/download-wetransfer-to-linux-server-wget
