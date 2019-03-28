@@ -21,6 +21,9 @@ if slack_client.rtm_connect():
                 text = event['text']
                 message = "Received link {}. Checking validity...".format(text)
                 slack_client.api_call("chat.postMessage", channel=channel, text=message)
+
+                # Because the link is enclosed within <>, we first strip it
+                text = text[1:-1]
                 status_return_code = parser.parseUrl(text)
                 if status_return_code == 0:
                     message = "Download successful!"
