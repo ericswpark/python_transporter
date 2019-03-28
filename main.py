@@ -12,7 +12,6 @@ if slack_client.rtm_connect():
     while True:
         events = slack_client.rtm_read()
         for event in events:
-            print(event)
             # Process new events
             # Let's make sure this event is from the transporter channel and is valid
             if('channel' in event and 'text' in event and event.get('type') == 'message' and event.get('subtype') != 'bot_message'):
@@ -34,8 +33,7 @@ if slack_client.rtm_connect():
                 else:
                     message = "An unexpected error occurred during the parsing process."
                 slack_client.api_call("chat.postMessage", channel=channel, text=message)
-            else:
-                print("No message received for this run. Sleeping 30 seconds...")
         time.sleep(30)
+
 else:
     print("Connection failed, invalid tokens?")
