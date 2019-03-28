@@ -1,12 +1,27 @@
 from slackclient import SlackClient
 import os
+import sys
 import time
 import parser
+import config
 
-# TODO: Read token from a separate file to prevent leaks
+# Try reading token
+try:
+    token = config.readConfig('auth','token')
+except:
+    # Token not available
+    print("It seems like you have not initialized the configuration file. Would you like to do so now? (y/n) ", end='')
+    choice = input().lower()
+    if(choice == 'y'):
+        print("Please paste your bot token: ", end='')
+        token = input()
+        config.writeConfig('auth','token', token)
+        print("Token successfully written to configuration. Please restart!")
+    sys.exit(0)
+
+
 # Initialize client
-SLACK_BOT_TOKEN = "xoxb-553286279156-556607535715-KolZkyBqAektJ7noQjLsaDlG"
-slack_client = SlackClient(SLACK_BOT_TOKEN)
+slack_client = SlackClient(token)
 
 if slack_client.rtm_connect():
     # Connection to chat successful!
