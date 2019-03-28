@@ -33,7 +33,7 @@ if slack_client.rtm_connect():
                 else:
                     message = "An unexpected error occurred during the parsing process."
                 slack_client.api_call("chat.postMessage", channel=channel, text=message)
-        time.sleep(30)
+        time.sleep(1)
 
 else:
     print("Connection failed, invalid tokens?")
