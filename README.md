@@ -18,3 +18,20 @@ Small script to send videos to ingest computer. Links sent to the specific Slack
 
 Right now, only WeTransfer (wetransfer.com) links are supported. Other link type support is coming in the future.
 
+# FAQ
+
+### Q: How do I transfer across computers?
+
+A: Copy the `config.ini` file to the new computer, making sure that it is located next to the Python script (or executable if you used something like Nukita.) Run. Video files will not be transferred.
+
+### Q: Transporter is slow/not working.
+
+A: Transporter does not support multi-threaded downloading because I created this script primarily to install on our ancient ingest computer. Therefore, to avoid choking disk I/O or bandwidth, I decided to keep it single-threaded. A multi-thread version might be a possibility in the future.
+
+### Q: Transporter started overwriting files.
+
+A: This is a known design flaw. We do this because sometimes you might submit the wrong file and want to resubmit. Therefore, you should only invite trusted members into the same chat as Transporter.
+
+### Q: I have a suggestion/bug fix/feature addition. Where do I go?
+
+Issues or pull request! Also, thank you!
