@@ -26,9 +26,9 @@ A: Copy the `config.ini` file to the new computer, making sure that it is locate
 
 ### Q: Transporter is slow/not working.
 
-A: Transporter does not support multi-threaded downloading because I created this script primarily to install on our ancient ingest computer. Therefore, to avoid choking disk I/O or bandwidth, I decided to keep it single-threaded. A multi-thread version might be a possibility in the future.
+A: Transporter does not support multi-threaded downloading because I created this script primarily to install on our ancient ingest computer. Therefore, to avoid choking disk I/O or bandwidth, I decided to keep it single-threaded. A multi-thread version might be a possibility in the future, with single-threaded operation invoked with arguments.
 
-### Q: Transporter started overwriting files.
+### Q: Transporter started overwriting files with the same name! What gives?
 
 A: This is a known design flaw. We do this because sometimes you might submit the wrong file and want to resubmit. Therefore, you should only invite trusted members into the same chat as Transporter.
 
