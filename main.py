@@ -26,7 +26,7 @@ slack_client = SlackClient(token)
 if slack_client.rtm_connect():
     # Connection to chat successful!
     while True:
-        events = slack_client.rtm_read(auto_reconnect=True)
+        events = slack_client.rtm_read() #auto_reconnect=True)
         for event in events:
             # Process new events
             # Let's make sure this event is a message event from a channel (make sure it's not a bot message too)
