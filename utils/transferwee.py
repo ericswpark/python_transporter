@@ -27,37 +27,15 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 
-
-"""
-Download/upload files via wetransfer.com
-
-transferwee is a script/module to download/upload files via wetransfer.com.
-
-It exposes `download' and `upload' subcommands, respectively used to download
-files from a `we.tl' or `wetransfer.com/downloads' URLs and upload files that
-will be shared via emails or link.
-"""
-
-
 from typing import List
 import os.path
 import urllib.parse
 import zlib
-
 import requests
 
 
 WETRANSFER_API_URL = 'https://wetransfer.com/api/v4/transfers'
 WETRANSFER_DOWNLOAD_URL = WETRANSFER_API_URL + '/{transfer_id}/download'
-WETRANSFER_UPLOAD_EMAIL_URL = WETRANSFER_API_URL + '/email'
-WETRANSFER_UPLOAD_LINK_URL = WETRANSFER_API_URL + '/link'
-WETRANSFER_FILES_URL = WETRANSFER_API_URL + '/{transfer_id}/files'
-WETRANSFER_PART_PUT_URL = WETRANSFER_FILES_URL + '/{file_id}/part-put-url'
-WETRANSFER_FINALIZE_MPP_URL = WETRANSFER_FILES_URL + '/{file_id}/finalize-mpp'
-WETRANSFER_FINALIZE_URL = WETRANSFER_API_URL + '/{transfer_id}/finalize'
-
-WETRANSFER_DEFAULT_CHUNK_SIZE = 5242880
-
 
 def download_url(url: str) -> str:
     """Given a wetransfer.com download URL download return the downloadable URL.
@@ -122,17 +100,3 @@ def download(url: str) -> None:
     with open(file, 'wb') as f:
         for chunk in r.iter_content(chunk_size=1024):
             f.write(chunk)
-
-
-def _file_name_and_size(file: str) -> dict:
-    """Given a file, prepare the "name" and "size" dictionary.
-
-    Return a dictionary with "name" and "size" keys.
-    """
-    filename = os.path.basename(file)
-    filesize = os.path.getsize(file)
-
-    return {
-        "name": filename,
-        "size": filesize
-    }
