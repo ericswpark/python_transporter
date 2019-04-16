@@ -7,7 +7,7 @@ import utils.config as config
 
 # Try reading token
 try:
-    token = config.readConfig('auth','token')
+    token = config.readConfig('auth','slack-token')
 except:
     # Token not available
     print("It seems like you have not initialized the configuration file. Would you like to do so now? (y/n) ", end='')
@@ -15,7 +15,7 @@ except:
     if(choice == 'y'):
         print("Please paste your bot token: ", end='')
         token = input()
-        config.writeConfig('auth','token', token)
+        config.writeConfig('auth','slack-token', token)
         print("Token successfully written to configuration. Please restart!")
     sys.exit(0)
 
