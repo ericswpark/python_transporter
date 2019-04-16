@@ -10,8 +10,8 @@ def parseUrl(link) -> int:
     if 'wetransfer' in link or 'we.tl' in link:
         # WeTransfer link
         print('Got WeTransfer link: {}'.format(link))
-        import transferwee
-        transferwee.download(link)
+        import utils.transferwee
+        utils.transferwee.download(link)
     elif 'http' not in link:
         # Possible we got a bad link
         print('Bad link, not parsing: {}'.format(link))
