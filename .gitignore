@@ -59,3 +59,12 @@ target/
 
 # Configuration
 config.ini
+
+# Test video files
+*.ogg
+*.mkv
+*.mp4
+*.m4a
+*.mp3
+*.mov
+*.avi
