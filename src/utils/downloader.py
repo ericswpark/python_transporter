@@ -1,12 +1,9 @@
 '''
-Parses the URL to retreive the video.
+downloader.py
 
-@returns:
-    0 - Successful
-    1 - Not link
-    2 - Unsupported link or text
+This file defines functions to parse and download video URLs.
 '''
-def parseUrl(link) -> int:
+def download(link) -> int:
     if 'wetransfer' in link or 'we.tl' in link:
         # WeTransfer link
         print('Got WeTransfer link: {}'.format(link))
