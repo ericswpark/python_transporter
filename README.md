@@ -1,3 +1,9 @@
+## Archival notice
+
+As of June 13th, 2019, this project is now archived. No new commits will be pushed.
+
+I may reopen this project again in the future.
+
 # Transporter
 
 Small script to send videos to ingest computer. Links sent to the specific Slack channel will be parsed and downloaded.
